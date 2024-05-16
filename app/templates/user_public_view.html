@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+
+<h1>Public View: Account {{ user.id }} Information</h1>
+
+<br>
+
+<div class="container">
+    <p><strong>Account Number:</strong> {{ user.id }}</p>
+    <p><strong>Name:</strong> {{ user.firstname }} {{ user.lastname }}</p>
+
+    <br>
+
+    {% if user_is_seller %}
+    <h3>Seller Information:</h3>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Address:</strong> {{ user.address }}</p>
+    <br>
+    <div class="feedbacks-section">
+        <h3>Feedbacks for this Seller</h3>
+        <br>
+        {% if feedbacks %}
+            <p><strong>Average Rating:</strong> {{ average_rating|round(2) }}/5</p>
+            <p><strong>Total Feedbacks:</strong> {{ feedbacks|length }}</p>
+            <br>
+
+            {% if feedbacks|length > 3 %}
+                <h4>Most Popular</h4>
+                <br>
+                {% with feedback_list = feedbacks[:3], feedback_images = feedback_images %}
+                    {% include '_feedback_list.html' %}
+                {% endwith %}
+                <br>
+                <h4>Most Recent</h4>
+                <br>
+                {% with feedback_list = feedbacks[3:], feedback_images = feedback_images %}
+                    {% include '_feedback_list.html' %}
+                {% endwith %}
+            {% else %}
+                {% with feedback_list = feedbacks, feedback_images = feedback_images %}
+                    {% include '_feedback_list.html' %}
+                {% endwith %}
+            {% endif %}
+        {% else %}
+            <p>No feedbacks available.</p>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    function upvoteFeedback(feedbackId) {
+        const button = document.querySelector('button[onclick="upvoteFeedback('+feedbackId+')"]');
+        fetch("{{ url_for('feedback.upvote_feedback', feedback_id=0) }}".replace('0', feedbackId), {
+            method: 'POST'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                let upvoteCount = parseInt(button.innerText.match(/\d+/)[0]) + 1;
+                button.innerText = 'Upvote (' + upvoteCount + ')';
+            } else {
+                alert(data.error);
+            }
+        })
+        .catch(error => console.error('Error upvoting feedback:', error));
+    }
+</script>
+
+{% endblock %}

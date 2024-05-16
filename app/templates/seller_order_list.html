@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+
+<div class="row" style="display: flex; align-items: center;">
+    <h2 style="margin-right: 20px;">My Order Fulfillment List:</h2>
+    <a href="{{ url_for('inventory.seller_order_vis') }}" class="btn btn-primary"
+        style="text-align:center; vertical-align: middle;">View product popularity</a>
+</div>
+
+<br>
+<div class="container">
+    <form action="{{ url_for('inventory.seller_order_list') }}" method="get">
+        <div class="form-group">
+            <label for="search_term">Order ID:</label>
+            <input type="number" id="order_id" name="search_term" min="1" step="1" class="form-control"
+                placeholder="Search by Order ID">
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label for="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="end_date">End Date:</label>
+                <input type="date" id="end_date" name="end_date" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inventory_name">Inventory Name:</label>
+            <input type="text" name="inventory_name" class="form-control" placeholder="Search by Inventory Name">
+        </div>
+        <br>
+        <div style="display: block; text-align: center; width: 100%;">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
+    <br>
+
+    {% if order_details %}
+    <table class='table table-hover table-bordered container'>
+        <thead class="thead-dark">
+            <tr>
+                <th>Order ID</th>
+                <th>Buyer ID</th>
+                <th>Buyer name</th>
+                <th>Status</th>
+                <th>Address</th>
+                <th>Total Items</th>
+                <th>Placed On</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in order_details %}
+            <tr>
+                <td>{{ order.order_id }}</td>
+                <td>{{ order.user_id }}</td>
+                <td>{{ order.first_name }} {{ order.last_name }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.address }}</td>
+                <td>{{ order.total_quantity }}</td>
+                <td>{{ order.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td>
+                    <a href="{{ url_for('inventory.seller_order_detail', order_id=order.order_id) }}"
+                        class="btn btn-info">View Details</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No orders found.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

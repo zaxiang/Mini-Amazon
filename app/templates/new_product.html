@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<h2>Add New Product</h2>
+<form action="{{ url_for('product.add_product') }}" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label }}
+        <br />
+        {{ form.name(size=32) }}
+        {% for error in form.name.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.description.label }}
+        <br />
+        {{ form.description(size=32) }}
+        {% for error in form.description.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.image.label }}
+        <br />
+        {{ form.image() }}
+        {% for error in form.image.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.current_quantity.label }}
+        <br />
+        {{ form.current_quantity(size=32) }}
+        {% for error in form.current_quantity.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.price.label }}
+        <br />
+        {{ form.price(size=32) }}
+        {% for error in form.price.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.categories.label }}
+    <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
+    {% for error in form.categories.errors %}
+    <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+    <br />
+    {{ form.categories(size=5, multiple=True) }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+{% endblock %}

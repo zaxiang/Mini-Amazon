@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h1>Edit Inventory {{ invid }} Design</h1>
+<br>
+
+<form action="{{ url_for('inventory.edit_design', invid=inventory.id) }}" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.name.label }}
+        <br>
+        {{ form.name() }}
+    </div>
+    <div>
+        {{ form.description.label }}
+        <br>
+        {{ form.description() }}
+    </div>
+    <div>
+        {{ form.images.label }}
+        <br>
+        {{ form.images(multiple="multiple") }}
+        <small>Select multiple images (JPEG only).</small>
+    </div>
+    <br>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}

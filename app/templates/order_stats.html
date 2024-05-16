@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+
+<h2>Your Order Statstics in Graphs:</h2>
+
+<br>
+
+<form action="{{ url_for('order.order_stats') }}" method="get">
+    <div class="form-group">
+        <label for="category_name">Category:</label>
+        <select name="category_name" class="form-control">
+            {% for category in categories %}
+            <option value="{{ category.label }}">{{ category.label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div style="display: block; text-align: center; width: 100%;">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+<br>
+
+<table hidden class='table table-hover table-bordered container'>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">When Created</th>
+            <th scope="col">Status</th>
+            <th scope="col">Total Items</th>
+            <th scope="col">Total Amount</th>
+            <th scope="col">When Fulfilled</th>
+            <th scope="col">Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if order_history and order_summary %}
+        {% for order in order_history%}
+        <tr>
+            <th scope="row">{{order.order_id}}</th>
+            <td>{{ order.created_at }}</td>
+            <td>{{ order.status }}</td>
+            <td>{{ order_summary[order.order_id].total_items }}</td>
+            <td>${{ order_summary[order.order_id].total_amount }}</td>
+            <td>{{ order.fulfilled_at }}</td>
+            <td>
+                <a href="{{ url_for('order.search_order_details', oid=order.order_id) }}" class="btn btn-info">View
+                    Details</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="5">No order history.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+<br>
+<div class="chart-title">
+    {{ selected_categories }}
+</div>
+
+<!-- Include Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <style>
+        .chart-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <!-- Chart -->
+    <div style="width: 1200px; height: 700px;">
+        <canvas id="orderChart"></canvas>
+    </div>
+
+    <script>
+        // Extracting and processing data from the table for plotting
+        var dates = [];
+        var DollarSpend = [];
+        var NumberItems = [];
+
+        // Loop through table rows to extract data
+        var rows = document.querySelectorAll('.table tbody tr');
+        rows.forEach(function (row) {
+            var cells = row.querySelectorAll('td');
+            var date = cells[0].textContent; // Get the 'When Created' column
+            var items = cells[2].textContent; // Get the 'Total Items" column
+            var amount = parseFloat(cells[3].textContent.replace('$', '')); // Get the 'Total Amount' column and remove '$' sign
+            dates.push(date);
+            DollarSpend.push(parseFloat(amount));
+            NumberItems.push(items);
+        });
+
+        // Create a chart using Chart.js
+        var ctx = document.getElementById('orderChart').getContext('2d');
+        var orderChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Total Amount',
+                    data: DollarSpend,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Total Items',
+                    data: NumberItems,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'day'
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date'
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Value'
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+
+{% endblock %}

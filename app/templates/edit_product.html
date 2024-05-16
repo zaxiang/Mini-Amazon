@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<h1>Edit Product {{ product.id }}</h1>
+<br>
+
+<form action="{{ url_for('product.edit_product', invid=inventory.id) }}" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label }}
+        <br />
+        {{ form.name(size=32, value=product.name) }}
+    </p>
+    <p>
+        {{ form.description.label }}
+        <br />
+        {{ form.description(size=32, value=product.description) }}
+    </p>
+    <p>
+        {{ form.image.label }}
+        <br />
+        {{ form.image() }}
+        <small>Current Image: <img src="{{ url_for('static', filename='images/' ~ product.imgid ~ '.jpeg') }}" height="100"></small>
+    </p>
+    <p>
+        {{ form.categories.label }}
+        <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
+        <p>Current categories: {{ tags }}</p>
+        <br />
+        {{ form.categories(size=5, multiple=True) }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+{% endblock %}

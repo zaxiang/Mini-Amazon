@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+  a.user_button {
+    text-align:center; 
+    vertical-align: middle; 
+    width: 200px; 
+    margin-right: 20px;
+  }
+</style>
+
+<br>
+<div class="row" style="display: flex; align-items: center;">
+  <h1 style="padding-right: 20px;">Account {{ user.id }} Information</h1>
+  <a href="{{ url_for('users.user_public_view', uid=user.id) }}" class="btn btn-primary user_button" >Public View</a>
+  <a href="{{ url_for('feedback.feedback') }}" class="btn btn-primary user_button" >Feedback History</a>
+  <a href="{{ url_for('review.review') }}" class="btn btn-primary user_button" >Review History</a>
+</div>
+
+<br>
+
+<div class="container">
+  <p><strong>First Name:</strong> {{ user.firstname }}</p>
+  <p><strong>Last Name:</strong> {{ user.lastname }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Address:</strong> {{ user.address }}</p>
+  <p><strong>Balance:</strong> ${{ user.balance }}</p>
+</div>
+
+<br>
+
+<div class="button-group">
+  <a href="{{ url_for('users.account_update') }}" class="btn btn-primary">Update Account</a>
+  <a href="{{ url_for('users.balance') }}" class="btn btn-primary">Update Balance</a>
+</div>
+
+{% endblock %}

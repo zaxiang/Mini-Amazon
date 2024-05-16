@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+
+<div class="row" style="display: flex; align-items: center;">
+    <h2 style="margin-right: 20px;">Popularity of your products:</h2>
+    <a href="{{ url_for('inventory.seller_order_list') }}" class="btn btn-secondary"
+        style="text-align:center; vertical-align: middle;">Back to Order List</a>
+</div>
+
+<br>
+
+<table hidden class='table table-hover table-bordered container'>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Total Sales</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in order_details %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.quantity * item.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<!-- Include Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <style>
+        .chart-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <!-- Chart -->
+    <div style="width: 1200px; height: 700px;">
+        <canvas id="orderChart"></canvas>
+    </div>
+
+    <script>
+        // Extracting and processing data from the table for plotting
+        var product = [];
+        var quantity = [];
+        var sales = [];
+
+        // Loop through table rows to extract data
+        var rows = document.querySelectorAll('.table tbody tr');
+        rows.forEach(function (row) {
+            var cells = row.querySelectorAll('td');
+            var prod = cells[0].textContent; // Get the 'Product' column
+            var quant = cells[1].textContent; // Get the 'Quantity" column
+            var sale = cells[3].textContent; // Get the 'Total Sales" column
+            product.push(prod);
+            quantity.push(quant);
+            sales.push(sale);
+        });
+
+        // Create a chart using Chart.js
+        var ctx = document.getElementById('orderChart').getContext('2d');
+        var orderChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: product,
+                datasets: [{
+                    label: 'Total Quantity Sold',
+                    data: quantity,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Total Sales',
+                    data: sales,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Category' // Change labelString to the appropriate label for your x-axis
+                        },
+                        ticks: {
+                            beginAtZero: true // This ensures the scale starts from zero
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Value'
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+{% endblock %}

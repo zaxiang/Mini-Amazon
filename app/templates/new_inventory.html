@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h2>Add New Inventory</h2>
+{% if msg %}
+<strong style="color: red; margin-bottom: 30px;">Error: {{ msg }}</strong>
+{% endif %}
+<form action="{{ url_for('inventory.add_inventory') }}" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.pid.label }}
+        <br />
+        {{ form.pid() }}
+        {% for error in form.pid.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.current_quantity.label }}
+        <br />
+        {{ form.current_quantity(size=32) }}
+        {% for error in form.current_quantity.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.price.label }}
+        <br />
+        {{ form.price(size=32, step="0.01") }}
+        {% for error in form.price.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+{% endblock %}

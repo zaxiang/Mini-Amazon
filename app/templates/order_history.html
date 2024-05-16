@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+
+<div class="row" style="display: flex; align-items: center;">
+  <h2 style="margin-right: 20px;">Your Order History:</h2>
+  <a href="{{ url_for('order.order_stats') }}" class="btn btn-primary"
+    style="text-align:center; vertical-align: middle;">View purchase statistics</a>
+</div>
+
+<br>
+
+<form action="{{ url_for('order.order') }}" method="get">
+  <div class="form-group">
+    <label for="seller_id">Seller ID:</label>
+    <input type="number" name="seller_id" min="0" step="1" class="form-control" placeholder="Search by Seller ID">
+  </div>
+  <div class="form-group">
+    <label for="search_term">Order ID:</label>
+    <input type="number" id="order_id" name="search_term" min="1" step="1" class="form-control"
+      placeholder="Search by Order ID">
+  </div>
+  <div class="form-group row">
+    <div class="col-md-6">
+      <label for="start_date">Start Date:</label>
+      <input type="date" id="start_date" name="start_date" class="form-control">
+    </div>
+    <div class="col-md-6">
+      <label for="end_date">End Date:</label>
+      <input type="date" id="end_date" name="end_date" class="form-control">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inventory_name">Products Name:</label>
+    <input type="text" name="inventory_name" class="form-control" placeholder="Search by Inventory Name">
+  </div>
+  <br>
+  <div style="display: block; text-align: center; width: 100%;">
+    <button type="submit" class="btn btn-primary">Search</button>
+  </div>
+</form>
+
+<br>
+
+<table class='table table-hover table-bordered container'>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Order ID</th>
+      <th scope="col">When Created</th>
+      <th scope="col">Status</th>
+      <th scope="col">Total Items</th>
+      <th scope="col">Total Amount</th>
+      <th scope="col">When Fulfilled</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if order_history and order_summary %}
+    {% for order in order_history%}
+    <tr>
+      <th scope="row">{{order.order_id}}</th>
+      <td>{{ order.created_at }}</td>
+      <td>{{ order.status }}</td>
+      <td>{{ order_summary[order.order_id].total_items }}</td>
+      <td>${{ order_summary[order.order_id].total_amount }}</td>
+      <td>{{ order.fulfilled_at }}</td>
+      <td>
+        <a href="{{ url_for('order.search_order_details', oid=order.order_id) }}" class="btn btn-info">View Details</a>
+      </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <tr>
+      <td colspan="5">No order history.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+
+</body>
+
+{% endblock %}

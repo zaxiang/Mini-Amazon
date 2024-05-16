@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-6">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div style="text-align: center;">
+                    <strong>User {{ review_single.uid }}</strong> - <small>Reviewed on {{ review_single.time_created.strftime('%Y-%m-%d
+                        at %H:%M') }}</small>
+                </div>
+                <br>
+                <p><strong>Rating:</strong> {{ review_single.rating }} Stars</p>
+                <p><strong>Review:</strong> {{ review_single.review }}</p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="btn btn-small btn-success" onclick="upvoteReview({{ review_single.id }})">Upvote ({{
+                        review_single.upvote }})</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        {% if review_images[review_single.id] %}
+        <div id="carouselReviewSingle" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {% for image in review_images[review_single.id] %}
+                <div class="carousel-item {{ 'active' if loop.first }}" style="justify-content: center; align-items: center; height: 200px;">
+                    <img src="{{ url_for('static', filename='images/' ~ image.content) }}" class="d-block w-100"
+                        alt="{{ image.content }}" style="width: 190px !important; height: 190px !important; margin: auto;">
+                </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#carouselReviewSingle" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselReviewSingle" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        {% else %}
+        <p class="text-center mt-2">No images available.</p>
+        {% endif %}
+    </div>
+</div>
+<br>

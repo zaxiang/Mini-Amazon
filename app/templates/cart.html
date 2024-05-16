@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<br>
+{% if error %}
+<div style="color: red;">
+    Error: Not enough inventory or invalid quantity.
+</div>
+{% endif %}
+<h2>Cart Details:</h2>
+<br>
+
+<table class='table table-hover table-bordered container'>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Seller ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Description</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if cart_details %}
+        {% for item in cart_details %}
+        <tr>
+            <th scope="row">{{ item.sid }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>
+                <form id="updateQuantityForm" action="{{ url_for('cart.update_quantity') }}" method="post">
+                    <input type="hidden" name="invid" value="{{ item.invid }}">
+                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1" style="width: 60px;">
+                    <button type="submit" class="btn btn-info btn-sm">Update</button>
+                </form>
+            </td>
+            <td>{{ item.price }}</td>
+            <td>
+                <form action="{{ url_for('cart.delete_item_from_cart') }}" method="post">
+                    <input type="hidden" name="invid" value="{{ item.invid }}">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                <form action="{{ url_for('cart.save_product_for_later') }}" method="post">
+                    <input type="hidden" name="invid" value="{{ item.invid }}">
+                    <button type="submit" class="btn btn-primary">Save for Later</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="6">No items in cart.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+    {% if total_items and total_price %}
+    <tfoot>
+        <tr class="table-info">
+            <th colspan="3">Total</th>
+            <td>{{ total_items }}</td>
+            <td colspan="1">${{ total_price | round(2) }}</td>
+            <td colspan="1"></td>
+        </tr>
+    </tfoot>
+    {% endif %}
+</table>
+
+{% if cart_details %}
+<form action="{{ url_for('cart.checkout_summary') }}" method="get">
+    <button type="submit" class="btn btn-primary">Checkout</button>
+</form>
+<br>
+{% endif %}
+<form action="{{ url_for('cart.save_for_later') }}" method="get">
+    <button type="submit" class="btn btn-primary">View Save-for-Later</button>
+</form>
+<br>
+
+{% if recommendation %}
+<div>
+    <h3>You may also like:</h3>
+    <br>
+    <div id="recommendationCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for item in recommendation %}
+            <div class="carousel-item {{ 'active' if loop.first }}">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.display_name }}</h5>
+                        <p class="card-text">{{ item.display_description }}</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Price:</strong> ${{ item.price }}</li>
+                                    <li><strong>Average Rating:</strong> {{ item.avg_rating|round(2) if item.avg_rating
+                                        != 0 else "N/A" }}</li>
+                                    <li><strong>Category:</strong> {{ item.category_label }}</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="{{ url_for('static', filename='images/' + item.image_id|string + '.jpeg') }}"
+                                    alt="{{ item.display_name }}" class="img-fluid"
+                                    style="width: 100px; height: 100px;">
+                            </div>
+                        </div>
+                        <form action="{{ url_for('cart.add_product_to_cart') }}" method="post">
+                            <input type="hidden" name="invid" value="{{ item.inventory_id }}">
+                            <input type="hidden" name="recommend_page" value="recommend_add_cart">
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#recommendationCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#recommendationCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<br>
+{% endif %}
+
+<style>
+    .carousel-item {
+        background-color: #f0f8ff;
+        color: #333;
+        text-align: center;
+    }
+
+    .card {
+        background-color: #f0f8ff;
+        margin: 0 auto;
+        border: transparent;
+        width: 80%;
+    }
+
+    .card-body ul {
+        text-align: center;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: #666;
+    }
+</style>
+
+{% endblock %}

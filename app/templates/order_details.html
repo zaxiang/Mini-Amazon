@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+  <h2 style="padding-right: 20px;">Order {{ order.id }} Details: </h2>
+  <a href="{{ url_for('order.order') }}" class="btn btn-secondary mb-3">Back to Order List</a>
+</div>
+
+<br>
+
+<table class='table table-hover table-bordered container'>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Seller ID</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Product Description</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Status</th>
+      <th scope="col">When Fulfilled</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in order_details %}
+    <tr>
+      <th scope="row">{{ item.sid }}</th>
+      <td>{{ item.name }}</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.price }}</td>
+      <td>{{ item.status }}</td>
+      <td>{{ item.fulfilled_time }}</td>
+      <td>
+        <!-- Add a button for creating a new seller feedback -->
+        <form action="{{ url_for('feedback.new_feedback', sid=item.sid)}}">
+          <button type="submit" class="btn btn-primary btn-sm" style="width: 150px;">Add Feedback</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr class="table-info">
+      <th colspan="3">Total</th>
+      <td>{{ order_summary[order.id].total_items }}</td>
+      <td colspan="1">${{ order_summary[order.id].total_amount | round(2) }}</td>
+      <td colspan="3"></td>
+    </tr>
+  </tfoot>
+</table>
+
+{% endblock %}

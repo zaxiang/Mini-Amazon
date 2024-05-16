@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+{% if error %}
+<div style="color: red;">
+    Error: Not enough inventory or invalid quantity.
+</div>
+{% endif %}
+<h2>Products Saved for Later:</h2>
+<br>
+<table class='table table-hover table-bordered container'>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Seller ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Description</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if cart_details %}
+        {% for item in cart_details %}
+        <tr>
+            <th scope="row">{{ item.sid }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>
+                <form id="updateQuantityForm" action="{{ url_for('cart.update_quantity') }}" method="post">
+                    <input type="hidden" name="invid" value="{{ item.invid }}">
+                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1" style="width: 60px;">
+                    <button type="submit" class="btn btn-info btn-sm">Update</button>
+                </form>
+            </td>
+            <td>{{ item.price }}</td>
+            <td>
+                <form action="{{ url_for('cart.delete_item_from_cart') }}" method="post">
+                    <input type="hidden" name="invid" value="{{ item.invid }}">
+                    <input type="hidden" name="save_for_later" value="True">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                <form action="{{ url_for('cart.move_product_to_cart') }}" method="post">
+                    <input type="hidden" name="invid" value="{{ item.invid }}">
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="6">No items in cart.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+<form action="{{ url_for('cart.cart') }}" method="get">
+    <button type="submit" class="btn btn-primary">View Cart</button>
+</form>
+{% endblock %}

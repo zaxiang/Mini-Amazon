@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+
+<h2>Order {{ order_id }} Details:</h2>
+<a href="{{ url_for('inventory.seller_order_list') }}" class="btn btn-secondary mb-3">Back to Order List</a>
+
+<br>
+
+<table class='table table-hover table-bordered container'>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Description</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Status</th>
+            <th scope="col">When Fulfilled</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in order_details %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.fulfilled_time }}</td>
+            <td>
+                {% if item.status != 'fulfilled' %}
+                <form action="{{ url_for('inventory.mark_fulfilled') }}" method="post">
+                    <input type="hidden" name="order_id" value="{{ order_id }}">
+                    <input type="hidden" name="invid" value="{{ item.invid }}">
+                    <button type="submit" class="btn btn-success">Mark as Fulfilled</button>
+                </form>
+                {% else %}
+                Fulfilled
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

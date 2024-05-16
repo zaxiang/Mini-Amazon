@@ -1,0 +1,322 @@
+1,0,Vanilla Ice Cream,"Creamy ice cream made with real vanilla beans",1
+2,0,Chocolate Ice Cream,"Rich dark chocolate ice cream, perfect for dessert",2
+3,0,Organic Strawberry Ice Cream,"Sweet organic strawberries in creamy ice cream",3
+4,0,6-pack of paycheck pilsners,"Craft beer brewed with a blend of artisanal bread",4
+5,0,Seven fabergé easter eggs,"Great Easter Eggs",5
+6,0,Painting - the storm on the sea of galilee,"Painting",6
+7,0,Smart LED TV,"50-inch smart LED TV with 4K resolution",7
+8,0,Luxury Leather Watch,"Elegant leather watch with Swiss movements",8
+9,0,Handmade Wool Scarf,"Soft wool scarf, handmade in Peru",9
+10,0,Portable Bluetooth Speaker,"High-quality sound in a portable speaker",10
+11,0,Professional DSLR Camera,"20 MP DSLR camera with high-speed autofocus",11
+12,0,Solar Powered Charger,"Portable charger powered by solar energy",12
+13,0,Eco-Friendly Yoga Mat,"Non-slip yoga mat made from natural materials",13
+14,0,Thermal Insulated Water Bottle,"Keeps drinks cold for 24 hours or hot for 12",14
+15,0,Organic Dog Food,"Grain-free dog food with organic chicken",15
+16,0,Electric Skateboard,"High-performance electric skateboard",16
+17,0,Gourmet Black Truffle Pasta,"Pasta infused with aromatic black truffles",17
+18,0,Compact Home Gym,"All-in-one home gym equipment for various workouts",18
+19,0,Minimalist Wallet,"Slim, minimalist wallet crafted from genuine leather",19
+20,0,Matcha Tea Set,"Complete set for preparing Matcha tea",20
+21,0,Microfiber Towel Set,"Ultra-absorbent microfiber towels for quick drying",21
+22,0,Biodegradable Phone Case,"Eco-friendly phone case made from compostable material",22
+23,0,Advanced Yoga Kit,"Complete yoga kit with mat, blocks, and strap",23
+24,0,Herbal Sleep Tea,"Calming tea blend for improved sleep quality",24
+25,0,Natural Acne Skincare Set,"Complete skincare regimen for acne-prone skin",25
+26,0,Copper Garden Tools,"Rust-resistant copper garden tools set",26
+27,0,High-Performance Running Shoes,"Lightweight and durable running shoes for athletes",27
+28,0,Compact Air Fryer,"Energy-efficient air fryer for healthier cooking",28
+29,0,Robot Vacuum Cleaner,"Smart robot vacuum cleaner with mapping technology",29
+30,0,Wireless Earbuds,"High-fidelity sound with noise cancellation features",30
+31,0,Designer Fragrance for Men,"Exclusive men's cologne with a bold scent",31
+32,0,Ceramic Dinnerware Set,"Elegant ceramic plates and bowls set",32
+33,0,Adjustable Dumbbells,"Space-saving adjustable dumbbells for home workouts",33
+34,0,Indoor Herb Garden Kit,"Grow your own herbs indoors with this complete kit",34
+35,0,Smart Thermostat,"Reduce energy use with programmable smart thermostat",35
+36,0,Portable Projector,"Compact projector for movies and presentations",36
+37,0,Antique Silver Mirror,"Ornate silver mirror for classical home decor",37
+38,0,Wireless Charging Station,"Multi-device charging station for electronics",38
+39,0,Outdoor Survival Kit,"Essential survival tools for outdoor adventures",39
+40,0,Leather Journal,"Handcrafted leather-bound journal",40
+41,0,Organic Matcha Powder,"Premium grade organic matcha for cooking and beverages",41
+42,0,Ergonomic Office Chair,"Comfortable and adjustable office chair for long working hours",42
+43,0,Waterproof Hiking Boots,"Durable and waterproof boots for all-weather hiking",43
+44,0,Designer Fragrance for Women,"Exclusive men's cologne with a bold scent",44
+45,0,Professional Makeup Kit,"Complete set for professional makeup artists",45
+46,0,Smart Home Security Camera,"Wi-Fi enabled security camera with night vision",46
+47,0,Gourmet Biscuit Assortment,"Assorted gourmet biscuits from around the world",47
+48,0,Modular Bookshelf,"Stylish modular bookshelf for customizable setups",48
+49,0,Artisanal Chocolate Bars,"Handcrafted chocolate bars with unique flavors",49
+50,0,Personalized Pet Collars,"Custom-made collars for pets with name tags",50
+51,0,3D Printer,"Compact 3D printer for home and educational use",51
+52,0,Virtual Reality Headset,"Immersive VR headset for interactive experiences",52
+53,0,Portable Espresso Machine,"Compact and portable espresso machine for travel",53
+54,0,Smartwatch Fitness Tracker,"Advanced fitness tracker with heart rate monitor",54
+55,0,Retro Style Refrigerator,"Vintage-inspired refrigerator with modern features",55
+56,0,Vintage Vinyl Record Player,"Retro-style record player with modern sound quality",56
+57,0,Handcrafted Wooden Chess Set,"Elegant wooden chess set for enthusiasts",57
+58,0,Bluetooth Turntable,"Vintage-style turntable with modern Bluetooth connectivity",58
+59,0,High-Pressure Washer,"Powerful pressure washer for home and garden cleaning",59
+60,0,Artisan Bread Making Kit,"Everything needed to start baking artisan bread at home",60
+61,0,Carbon Fiber Road Bike,"Lightweight and robust road bike for competitive racing",61
+62,0,Laser Engraver,"Precision laser engraver for DIY crafts and professional use",62
+63,0,Herbal Tea Collection,"Assorted organic herbal teas for relaxation and health",63
+64,0,Noise-Cancelling Headphones,"High-quality headphones with advanced noise-cancelling features",64
+65,0,Convertible Laptop,"2-in-1 laptop and tablet with touchscreen capabilities",65
+66,0,Electric Toothbrush,"Rechargeable electric toothbrush with multiple brushing modes",66
+67,0,Handmade Soap Set,"Eco-friendly and moisturizing handmade soap bars",67
+68,0,Camping Tent for Four,"Spacious and durable tent perfect for family camping trips",68
+69,0,Air Purifier,"Efficient air purifier for reducing indoor air pollutants",69
+70,0,Precision Cooking Pot,"Multifunctional cooking pot with precise temperature control",70
+71,0,Luxury Fountain Pen,"Elegantly designed fountain pen for a smooth writing experience",71
+72,0,Yoga Mat with Carrying Strap,"Non-slip yoga mat ideal for yoga and pilates",72
+73,0,Action Camera,"Compact action camera for capturing HD sports and adventure footage",73
+74,0,Organic Cotton Baby Clothes,"Soft and hypoallergenic baby clothes made from organic cotton",74
+75,0,Wireless Charging Pad,"Fast wireless charging pad compatible with various devices",75
+76,0,Exotic Spice Rack,"Collection of rare spices from around the world",76
+77,0,Acoustic Guitar,"Full-size acoustic guitar perfect for beginners and enthusiasts",77
+78,0,Heated Blanket,"Electric heated blanket with adjustable temperature settings",78
+79,0,Gaming Mouse,"High-precision gaming mouse with customizable buttons",79
+80,0,Spa Bath Pillow,"Luxurious bath pillow for ultimate relaxation during baths",80
+81,0,VR Gaming Headset,"Immersive VR headset for realistic gaming",81
+82,0,Drone with Camera,"Quadcopter drone with HD camera for aerial photos",82
+83,0,Automatic Espresso Machine,"Barista-quality coffee at home with one-touch controls",83
+84,0,Architectural Drawing Set,"Precision tools for professional architects and students",84
+85,0,Interactive Cat Toy,"Engaging and interactive toy to keep your cat entertained",85
+86,0,Wireless Home Security System,"Comprehensive security system with HD cameras and alarms",86
+87,0,Portable Charcoal Grill,"Compact charcoal grill for easy transport and setup",87
+88,0,Designer Handbag Collection,"Luxury handbags from top fashion designers",88
+89,0,High-Performance Blender,"Powerful blender for smoothies, soups, and sauces",89
+90,0,Biodegradable Plant Pots,"Eco-friendly plant pots that naturally decompose",90
+91,0,Professional DJ Turntable,"High-quality turntable for professional DJs and music enthusiasts",91
+92,0,Modular Sofa Set,"Customizable sofa set with adjustable modules for any space",92
+93,1,"The Great Gatsby, Special Edition","Luxury leather-bound edition of the classic novel",93
+94,1,"Introduction to Philosophy","Comprehensive textbook covering fundamental philosophical concepts",94
+95,1,"Beginner's Guide to Digital Photography","A detailed guidebook for new photographers learning the craft",95
+96,1,"Mediterranean Cookbook","A collection of over 300 recipes from the Mediterranean diet",96
+97,1,"Modern Business Management","A contemporary approach to managing modern business challenges",97
+98,1,"Advanced Yoga Techniques","A deep dive into advanced yoga postures and breathing techniques",98
+99,1,"World History Atlas","Detailed atlas with historical maps from various periods",99
+100,1,"Gardening for Beginners","A step-by-step guide to starting your first garden",100
+101,1,"DIY Home Repairs","Practical tips for common home maintenance and repairs",101
+102,1,"Science Experiments for Kids","Fun and educational science experiments suitable for young learners",102
+103,1,"Mastering Chess Strategies","Techniques and strategies for improving your chess game",103
+104,1,"Classic Horror Stories","Collection of spine-chilling tales from classic horror authors",104
+105,1,"Innovative Startups","Exploring the journey of the most successful startups of the last decade",105
+106,1,"Wedding Planning on a Budget","A guide to planning your dream wedding without breaking the bank",106
+107,1,"The Art of Public Speaking","Techniques to improve your public speaking and presentation skills",107
+108,1,"The Science of Nutrition","Exploring the science behind nutrients and healthy eating habits",108
+109,1,"Biographies of the 20th Century","Insightful biographies of influential figures from the 20th century",109
+110,1,"Architecture and Design Trends","A visual guide to the latest trends in architecture and interior design",110
+111,1,"Investing for the Future","Strategies for long-term investing in stocks, bonds, and real estate",111
+112,1,"Poetry and Prose","A beautifully illustrated collection of poems and short stories",112
+113,1,"Mystery of the Pyramids","Explore the secrets and architectural marvels of Egypt's Great Pyramids.",113
+114,1,"Vegan Recipes","A collection of delicious and innovative vegan recipes for all seasons.",114
+115,1,"Great Battles of History","Detailed accounts and analyses of the most influential battles in history.",115
+116,1,"Poetry from the Heart","An anthology of romantic and contemporary poetry by emerging poets.",116
+117,1,"Space Exploration","Chronicles humanity's journey to explore beyond Earth.",117
+118,1,"Mindfulness and You","Techniques to enhance presence and mindfulness in everyday life.",118
+119,1,"Economics Made Simple","Basics of economics explained in a clear and understandable way.",119
+120,1,"Culinary Arts","From kitchen basics to advanced techniques for culinary enthusiasts.",120
+121,1,"Historical Fiction Classics","Collection of the best historical novels that bring the past to life.",121
+122,1,"Adventures in Science","Exciting and educational science experiments for young learners.",122
+123,1,"Basketball: The Legends","Biographies and career highlights of basketball's greatest players.",123
+124,1,"Sustainable Living","Guide to reducing your environmental impact with sustainable habits.",124
+125,1,"The Art of Negotiation","Master the skills of negotiation in business and personal situations.",125
+126,1,"Fantasy Worlds","Imaginative and captivating fantasy tales for readers of all ages.",126
+127,1,"Revolutionary Thinkers","Profiles of individuals whose ideas changed the world.",127
+128,1,"Guide to Classical Music","Everything you need to know about classical music and its composers.",128
+129,1,"Wildlife Photography","Tips and tricks for capturing stunning wildlife photographs.",129
+130,1,"Essentials of Gardening","Your beginner's guide to growing plants and flowers at home.",130
+131,1,"Science Fiction Anthology","A compelling collection of classic and modern science fiction stories.",131
+132,2,"Collapsible Pet Bowl","Portable and collapsible bowl for pets on the go.",132
+133,2,"Hiking Daypack","Lightweight daypack for short hikes and daily use.",133
+134,2,"Interactive Cat Laser Toy","Automatic laser toy to keep your cat entertained for hours.",134
+135,2,"Water Resistant Sleeping Bag","Durable sleeping bag suitable for three-season camping.",135
+136,2,"Bamboo Pet Brush","Eco-friendly pet brush for grooming cats and dogs.",136
+137,2,"Ergonomic Trekking Poles","Adjustable and ergonomic poles for comfortable hiking.",137
+138,2,"Natural Catnip Bubbles","Non-toxic bubbles made with natural catnip oil.",138
+139,2,"LED Camping Lantern","Bright and energy-efficient lantern for camping and emergencies.",139
+140,2,"Orthopedic Pet Bed","Memory foam bed for pets with arthritis or joint pain.",140
+141,2,"Outdoor Hammock","Durable outdoor hammock with mosquito net.",141
+142,2,"Dog Tug Toy","Durable rope toy for interactive play with your dog.",142
+143,2,"Inflatable Stand Up Paddle Board","Portable and stable paddle board for water sports.",143
+144,2,"Cat Window Perch","Suction cup window seat for cats to enjoy the view.",144
+145,2,"Adjustable Dog Collar","Safe and adjustable collar for dogs with a breakaway buckle.",145
+146,2,"Pet Safety Gate","Adjustable and lockable gate to keep pets safe indoors.",146
+147,2,"Climbing Chalk Bag","Convenient chalk bag for rock climbing and bouldering.",147
+148,2,"Squeaky Plush Dog Toy","Soft and durable plush toy with a squeaker for dogs.",148
+149,2,"Biodegradable Tent Pegs","Eco-friendly tent pegs, ideal for sustainable camping.",149
+150,2,"Automatic Fish Feeder","Reliable feeder to automate feeding in aquariums.",150
+151,2,"Cycling Multi-Tool","Compact multi-tool for on-the-go bicycle repairs.",151
+152,2,"Parrot Play Stand","Interactive play stand with toys for parrots.",152
+153,2,"Running Hydration Pack","Hydration backpack designed for long-distance runners.",153
+154,2,"Reptile Heat Mat","Adjustable heat mat to provide warmth for terrarium pets.",154
+155,2,"Portable Basketball System","Mobile basketball hoop with adjustable height.",155
+156,2,"Dog Anxiety Jacket","Calming coat for dogs to reduce anxiety during storms or fireworks.",156
+157,2,"Kayak Fishing Life Vest","Specially designed life vest for safety and convenience while kayak fishing.",157
+158,2,"Cat Scratching Post","Durable scratching post covered in sisal rope.",158
+159,2,"Rock Climbing Helmet","Protective helmet for rock climbing and mountaineering.",159
+160,2,"Self-Cleaning Litter Box","Automated litter box that reduces odors and maintenance.",160
+161,2,"Snowboarding Goggles","Anti-fog and UV protection goggles for snowboarding.",161
+162,2,"Ferret Tunnel System","Play tunnel system for ferrets and other small pets.",162
+163,2,"Tactical Backpack","Rugged backpack suited for hiking or tactical use.",163
+164,2,"Aquarium LED Light","Enhanced spectrum LED light to promote coral and plant growth.",164
+165,2,"Golf Practice Net","Portable net for practicing golf swings in limited spaces.",165
+166,2,"Bird Seed Mix","Nutritious seed mix for a variety of garden birds.",166
+167,2,"Portable Camping Stove","Compact gas stove perfect for camping and outdoor cooking.",167
+168,2,"Kitten Milk Replacer","Nutrient-rich milk formula for kittens without access to mother’s milk.",168
+169,2,"Ski Wax Kit","Everything needed to wax skis for optimal performance.",169
+170,2,"Hamster Ball","Transparent ball for hamsters to safely explore outside their cages.",170
+171,2,"High-Altitude Training Mask","Simulates high-altitude conditions to improve respiratory strength.",171
+172,2,"Organic Dog Treats","Healthy and organic treats for rewarding dogs.",172
+173,2,"Surfboard Wax","Quality wax for surfboards to enhance grip on the wave.",173
+174,2,"Rabbit Hutch","Outdoor rabbit hutch with weather-resistant features.",174
+175,2,"Camping Cookware Set","Lightweight and durable cookware for camping and backpacking.",175
+176,2,"Adjustable Cat Collar","Safe and adjustable collar for cats with a breakaway buckle.",176
+177,2,"Mountaineering Compass","Precision compass designed for challenging outdoor navigation.",177
+178,2,"Elevated Dog Feeder","Raised feeder to promote digestive health in dogs.",178
+179,2,"Thermal Hiking Socks","Warm and moisture-wicking socks for cold weather hiking.",179
+180,2,"Interactive Puppy Toy","Engaging toy to stimulate and entertain young dogs.",180
+181,2,"Foldable Camping Chair","Comfortable and easy-to-carry chair for camping and outdoor events.",181
+182,3,"Hydrating Facial Serum","Intensely moisturizing serum with hyaluronic acid and vitamin C.",182
+183,3,"Luxury Lipstick Trio","Set of three long-lasting lipsticks in red, nude, and pink shades.",183
+184,3,"Organic BB Cream","Lightweight BB cream with SPF 15, made from organic ingredients.",184
+185,3,"Vegan Eyeshadow Palette","Palette featuring 12 vegan, cruelty-free eyeshadow colors.",185
+186,3,"Anti-Aging Night Cream","Rich night cream to reduce fine lines and rejuvenate skin overnight.",186
+187,3,"Mineral Sunscreen Lotion","Broad-spectrum SPF 30 sunscreen made with natural minerals.",187
+188,3,"Charcoal Cleansing Bar","Detoxifying facial cleansing bar with activated charcoal.",188
+189,3,"Natural Hair Dye Kit","Permanent hair dye with nourishing plant extracts and no harsh chemicals.",189
+190,3,"Acne Treatment Gel","Fast-acting gel to target acne with salicylic acid and tea tree oil.",190
+191,3,"Soothing Aloe Vera Gel","100% pure aloe vera gel for skin hydration and soothing burns.",191
+192,3,"Perfume Oil Roll-On","Concentrated perfume oil in a convenient roll-on applicator.",192
+193,3,"Refreshing Facial Mist","Facial spray with rosewater and aloe to refresh and hydrate skin.",193
+194,3,"Peptide Eye Cream","Eye cream with peptides to firm skin and reduce under-eye circles.",194
+195,3,"Brightening Face Mask","Clay mask with lemon and papaya extracts to brighten skin tone.",195
+196,3,"Firming Body Lotion","Body lotion with collagen and elastin to firm and tone skin.",196
+197,3,"Makeup Primer","Silicone-free makeup primer for a smooth base.",197
+198,3,"Organic Lip Balm","Moisturizing lip balm made with organic shea butter and coconut oil.",198
+199,3,"Glow Boosting Moisturizer","Moisturizer that imparts a subtle glow with vitamin C and golden mica.",199
+200,3,"Nail Strengthener Cream","Cream to strengthen and grow nails, enriched with keratin.",200
+201,3,"Cucumber Eye Pads","Pre-soaked pads with cucumber extract to reduce puffiness.",201
+202,3,"Professional Makeup Brushes","Set of high-quality makeup brushes in a stylish organizer.",202
+203,3,"Detangling Hair Brush","Gentle hair brush that easily detangles without breakage.",203
+204,3,"Shaving Cream for Sensitive Skin","Rich lather shaving cream formulated for sensitive skin.",204
+205,3,"Vitamin C Face Wash","Brightening face wash with Vitamin C to enhance skin radiance.",205
+206,3,"Heat Protection Spray","Spray to protect hair from heat damage during styling.",206
+207,3,"Foot Peeling Mask","Mask to remove dead skin and soften feet with natural extracts.",207
+208,3,"Scalp Treatment Oil","Oil blend for a healthy scalp and to promote hair growth.",208
+209,3,"Retinol Serum","Highly concentrated retinol serum for anti-aging and skin texture improvement.",209
+210,3,"Mud Mask for Acne","Therapeutic mud mask for deep cleansing and acne treatment.",210
+211,3,"Waterproof Mascara","Long-lasting, smudge-proof mascara for voluminous lashes.",211
+212,3,"Hand Cream with SPF","Nourishing hand cream with SPF to protect against sun damage.",212
+213,3,"Korean Sheet Masks","Assortment of Korean sheet masks for various skin concerns.",213
+214,3,"Blemish Cover Stick","Concealer stick specifically formulated to cover and treat blemishes.",214
+215,3,"Body Scrub with Himalayan Salt","Exfoliating body scrub with fine Himalayan salt and essential oils.",215
+216,3,"Liquid Eyeliner Pen","Precise liquid eyeliner pen for perfect cat eyes.",216
+217,3,"Exfoliating Lip Scrub","Gentle lip scrub to exfoliate and smooth lips.",217
+218,3,"Hydrating Toner with Rosewater","Hydrating facial toner with rosewater for all skin types.",218
+219,3,"Quick Dry Nail Polish","Fast-drying nail polish in a variety of vibrant colors.",219
+220,3,"Soothing Shaving Gel","Aloe-enriched shaving gel to soothe and protect skin while shaving.",220
+221,3,"Natural Deodorant Stick","Aluminum-free deodorant stick with natural ingredients.",221
+222,3,"Moisturizing Hair Mask","Intensive hair treatment mask to restore moisture and shine.",222
+223,3,"Age Defying Face Oil","Luxurious face oil with antioxidants to combat signs of aging.",223
+224,3,"Biodegradable Glitter","Eco-friendly glitter for body, face, and crafts.",224
+225,3,"Eyebrow Shaping Kit","Complete kit for shaping and filling eyebrows.",225
+226,3,"Collagen Boosting Night Cream","Night cream to boost collagen production and smooth skin.",226
+227,3,"Sunscreen Mist SPF 50","Lightweight sunscreen mist for easy application and broad spectrum protection.",227
+228,3,"Nourishing Beard Oil","Beard oil to soften and condition facial hair.",228
+229,3,"Rejuvenating Night Serum","Night serum with antioxidants to rejuvenate skin overnight.",229
+230,3,"Color Correcting Palette","Palette with color correcting tones to even out skin imperfections.",230
+231,3,"Lash Enhancing Serum","Serum to enhance lash growth and thickness.",231
+232,4,"Elegant Sapphire Necklace","Luxurious sapphire necklace set in sterling silver.",232
+233,4,"Gold Hoop Earrings","Classic 14k gold hoop earrings for everyday elegance.",233
+234,4,"Diamond Solitaire Ring","Stunning 1-carat diamond solitaire ring in a platinum setting.",234
+235,4,"Silver Charm Bracelet","Sterling silver charm bracelet, customizable with charms.",235
+236,4,"Pearl Stud Earrings","Genuine freshwater pearl earrings set in 14k gold.",236
+237,4,"Engraved Silver Cufflinks","Personalized sterling silver cufflinks.",237
+238,4,"Rose Gold Watch","Sleek women's watch with a rose gold-tone stainless steel band.",238
+239,4,"Beaded Turquoise Necklace","Handcrafted necklace with natural turquoise beads.",239
+240,4,"Men's Leather Bracelet","Rugged braided leather bracelet for men.",240
+241,4,"Crystal Bridal Jewelry Set","Bridal jewelry set including necklace, earrings, and bracelet with crystals.",241
+242,4,"Antique Cameo Brooch","Victorian-style cameo brooch in an antique gold frame.",242
+243,4,"Handmade Beaded Anklet","Colorful beaded anklet, perfect for summer style.",243
+244,4,"Stackable Silver Rings","Set of three stackable sterling silver rings with mixed textures.",244
+245,4,"Birthstone Pendant Necklace","Customizable necklace with your choice of birthstone.",245
+246,4,"Gold Plated Tennis Bracelet","Elegant tennis bracelet with cubic zirconia in gold plating.",246
+247,4,"Vintage Pearl Necklace","Vintage style pearl necklace with a decorative clasp.",247
+248,4,"Magnetic Therapy Bracelet","Stylish bracelet with magnetic links for pain relief.",248
+249,4,"Black Onyx Cufflinks","Black onyx cufflinks set in a polished silver frame.",249
+250,4,"Infinity Knot Ring","Sterling silver ring featuring an infinity knot design.",250
+251,4,"Heart Shaped Diamond Earrings","Heart-shaped diamond earrings in white gold settings.",251
+252,4,"Multi-Strand Gold Necklace","Multi-strand necklace in 18k gold for a luxurious look.",252
+253,4,"Emerald Cut Engagement Ring","Emerald cut diamond engagement ring with halo diamonds.",253
+254,4,"Silver Toe Rings","Set of five adjustable silver toe rings with various patterns.",254
+255,4,"Jeweled Hair Pins","Set of three hair pins adorned with crystals and pearls.",255
+256,4,"Tungsten Carbide Wedding Band","Durable tungsten carbide wedding band with a brushed finish.",256
+257,4,"Adjustable Gemstone Bracelet","Adjustable bracelet featuring a variety of gemstones.",257
+258,4,"Gold Navel Piercing Jewelry","14k gold belly button ring with a dangling charm.",258
+259,4,"Zodiac Sign Necklace","Gold necklace featuring a pendant of your zodiac sign.",259
+260,4,"Locket Necklace with Photo Insert","Silver locket that can hold two photos, with floral engraving.",260
+261,4,"Moissanite Drop Earrings","Earrings with moissanite stones, offering diamond-like brilliance.",261
+262,4,"Custom Engraved Promise Rings","Pair of promise rings that can be engraved with initials or a date.",262
+263,4,"Art Deco Style Engagement Ring","Art deco-inspired engagement ring with geometric cut diamonds.",263
+264,4,"Foldable Jewelry Organizer","Travel-friendly jewelry organizer with multiple compartments.",264
+265,4,"Opal and Diamond Cocktail Ring","Opal ring surrounded by diamonds, set in white gold.",265
+266,4,"Fitness Tracker Jewelry Cover","Stylish cover that turns your fitness tracker into a chic bracelet.",266
+267,4,"Titanium Quartz Earrings","Titanium quartz earrings that display a range of colors.",267
+268,4,"Personalized Name Anklet","Gold anklet personalized with your name in cursive script.",268
+269,4,"Couple's Matching Bracelet Set","Matching bracelets for couples, customizable with dates or names.",269
+270,4,"Vintage Locket with Chain","Antique locket on a long chain, perfect for holding keepsakes.",270
+271,4,"Minimalist Metal Choker","Sleek and simple metal choker in polished silver.",271
+272,4,"Layered Chakra Necklace","Layered necklace with stones representing the seven chakras.",272
+273,4,"Statement Bib Necklace","Large bib necklace made from mixed metals and stones.",273
+274,4,"Gothic Skull Ring","Detailed skull ring crafted in sterling silver.",274
+275,4,"Convertible Brooch/Pendant","Jewelry that can be worn as a brooch or a pendant, with a floral motif.",275
+276,4,"Beaded Elastic Bracelet","Elastic bracelet made with colorful glass beads.",276
+277,4,"Hip Hop Fashion Chain","Oversized fashion chain commonly seen in hip hop fashion.",277
+278,4,"Renaissance Fair Crown","Elaborate metal crown suitable for renaissance fairs or cosplay.",278
+279,4,"Bolo Tie with Gemstone","Western-style bolo tie with a prominent central gemstone.",279
+280,4,"Silver Keychain with Charms","Silver keychain that holds various small charms.",280
+281,4,"Fashion Watch with Interchangeable Bands","Watch with several bands that can be swapped out.",281
+282,5,"Ultimate Workout Playlist","A curated playlist of energetic workout tracks.",282
+283,5,"Relaxing Jazz Collection","Smooth jazz tunes to relax and unwind.",283
+284,5,"Top 50 Billboard Hits","Latest top hits from the Billboard charts.",284
+285,5,"Classic Rock Anthems","Collection of all-time favorite classic rock songs.",285
+286,5,"Indie Folk Faves","A selection of popular indie folk songs.",286
+287,5,"Pop Divas of the Decade","Compilation of the best songs by leading female pop artists.",287
+288,5,"Hip-Hop Workout Beats","High-energy hip-hop tracks perfect for the gym.",288
+289,5,"Country Love Songs","Romantic country songs from the heart.",289
+290,5,"Reggae Sunsplash Mix","Feel the rhythm with classic and new reggae tracks.",290
+291,5,"Movie Soundtrack Classics","Iconic songs from blockbuster movies.",291
+292,5,"Yoga & Meditation Tunes","Tracks to aid meditation and yoga practices.",292
+293,5,"Chillwave Essentials","The best of chillwave music to soothe your mind.",293
+294,5,"Opera Masterpieces","A collection of the most powerful and beautiful opera pieces.",294
+295,5,"90's Rock Hits","Relive the 90's with these rock classics.",295
+296,5,"Jazz Instrumentals","Smooth and soothing jazz instrumentals.",296
+297,5,"Electronic Dance Music Hits","Pump up the volume with these EDM hits.",297
+298,5,"Gospel and Soul Mix","Uplifting gospel and soul music compilation.",298
+299,5,"Piano Solos","Beautiful piano pieces from classical to contemporary.",299
+300,5,"Children's Songs Collection","Fun and educational songs for kids.",300
+301,5,"Blues Legends","The best of blues from legendary artists.",301
+302,5,"Latin Music Fever","Hot Latin tracks to get you dancing.",302
+303,5,"Celtic Music Journey","Explore the sounds of Celtic music.",303
+304,5,"Chilled Beats","Relax with these laid-back beats.",304
+305,5,"Rock Ballads","Powerful rock ballads that stand the test of time.",305
+306,5,"Classical Music for Learning","Classical music pieces known to enhance concentration and learning.",306
+307,5,"Acoustic Favorites","A collection of popular acoustic tracks.",307
+308,5,"Vocal Trance Hits","The best in vocal trance music.",308
+309,5,"Live Concert Recordings","Experience the magic of live performances.",309
+310,5,"Folk Music from Around the World","Explore folk music from different cultures.",310
+311,5,"Soothing Nature Sounds","Nature sounds for relaxation and sleep.",311
+312,5,"Golden Oldies","Hits from the 50s and 60s that never get old.",312
+313,5,"Singer-Songwriter Spotlight","Showcasing the talents of singer-songwriters.",313
+314,5,"Best of Synthwave","Top tracks from the synthwave genre.",314
+315,5,"Instrumental Covers","Popular songs covered by various instruments.",315
+316,5,"Metal Mayhem","Heavy metal tracks to rock your world.",316
+317,5,"Reggaeton Beats","Get into the groove with reggaeton.",317
+318,5,"African Rhythms","Feel the pulse of Africa with these rhythmic songs.",318
+319,5,"Ambient Spaces","Explore ambient music for meditation and relaxation.",319
+320,5,"Festival Anthems","Songs that define the summer festival season.",320
+321,5,"Classic Country Hits","All your favorite classic country songs in one place.",321
+322,5,"Rap Battles","Iconic rap battles",322

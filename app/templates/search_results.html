@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+
+{% if mixed %}
+<h2> Browse by your filters</h2><br>
+<ul>
+    <li>Keyword: {{ keyword if keyword else 'N/A' }}</li>
+    <li>Category: {{ category if category != '' else 'N/A' }}</li>
+    <li>Price Range: {{ price_min if price_min else 'N/A' }} ~ {{ price_max if price_max else 'N/A' }}</li>
+    <li>Rating: >= {{ rating_filter if rating_filter else 'N/A' }}</li>
+    <li>Sorting: {{ sort if sort != [] else 'N/A' }}</li>
+</ul>
+<br>
+    {% if seller %}
+        <p>
+            <div class="row" style="display: flex; align-items: center;">
+                <h2 style="padding-right: 20px;">{{ seller.email }} Inventories:</h2>
+                <a href="{{ url_for('users.user_public_view', uid=seller.id) }}" class="btn btn-large btn-primary" style="text-align:center; vertical-align: middle;">Seller Public View</a>
+            </div>
+        </p>
+    {% endif %}
+{% elif category %}
+<h2> Browse by category</h2><br>
+{% endif %}
+
+<div class="container">
+    <div class="row">
+        {% for item in inventories_details %}
+        <div class="col-md-3 col-sm-6 mb-4">
+
+            <div class="card h-100">
+
+                <a href="{{ url_for('inventory.seller_product_detail', invid=item.inventory.id, details=item[0]) }}"
+                    class="card-link">
+                    {% if item.images.content %}
+                    <img src="{{ url_for('static', filename='images/' ~ item.images.content) }}"
+                        alt="{{ item.images.content }}" class="card-img-top">
+                    {% else %}
+                    <img src="..." alt="No image available" class="card-img-top"> <!-- Placeholder if no image -->
+                    {% endif %}
+                </a>
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.designs.name if item.designs else item.products.name }}</h5>
+                    <p class="card-text">{{ item.designs.description if item.designs else item.products.description }}</p>
+                </div>
+
+                <div class="card-footer">
+                    <small class="text-muted">Quantity: {{ item.inventory.current_quantity }}</small>
+                    <small class="text-muted">Price: {{ item.inventory.price }}</small>
+                </div>
+
+            </div>
+        </div>
+        {% if loop.index % 4 == 0 %}
+    </div>
+    <div class="row">
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

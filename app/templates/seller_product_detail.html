@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col">
+            <h2 style="padding-bottom: 20px; padding-right: 20px; display: inline-block;">Inventory {{
+                details.inventory.id }}'s detailed
+                information</h2>
+
+            <!-- Add a button for creating a new review -->
+            <a href="{{ url_for('review.new_review', invid=details.inventory.id) }}" class="btn btn-primary"
+                style="margin-right: 20px; width: 150px;">Create Review</a>
+
+            <!-- Add a button to view all reviews -->
+            <a href="{{ url_for('review.inventory_reviews', invid=details.inventory.id) }}" class="btn btn-secondary"
+                style="margin-right: 20px; width: 150px;">View Reviews</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Image container -->
+        <div class="col-md-6">
+            {% if details.images %}
+            {% if details.images is iterable and details.images is not string %}
+            <!-- If details.images is a list, display the first image -->
+            <button onclick="updateImage('left')">←</button>
+            <img id="inventory-image" src="{{ url_for('static', filename='images/' ~ details.images[0].content) }}"
+                alt="Inventory Image" class="img-fluid" style="width: 300px; height: 300px;">
+            <button onclick="updateImage('right')">→</button>
+            {% else %}
+            <!-- If details.images is not a list, display it directly -->
+            <img src="{{ url_for('static', filename='images/' ~ details.images.content) }}"
+                alt="{{ details.images.content }}" class="img-fluid" style="width: 300px; height: 300px;">
+            {% endif %}
+            {% else %}
+            <img src="..." alt="No image available" class="img-fluid" style="width: 300px; height: 300px;">
+            <!-- Placeholder if no image -->
+            {% endif %}
+        </div>
+        <!-- Information container -->
+        <div class="col-md-6">
+            <div class="h-100">
+                <div class="d-flex flex-column h-100 justify-content-between">
+                    <div>
+                        {% if details.designs %}
+                        <h5 class="card-title">{{ details.designs.name }}</h5>
+                        <p class="card-text">{{ details.designs.description }}</p>
+                        {% else %}
+                        <h5 class="card-title">{{ details.products.name }}</h5>
+                        <p class="card-text">{{ details.products.description }}</p>
+                        {% endif %}
+                        {% if check %}
+                        <!-- This form could be submitted by an "Edit" button next to the inventory information -->
+                        <form action="{{ url_for('inventory.edit_inventory') }}" method="POST">
+                            <input type="hidden" name="invid" value="{{ details.inventory.id }}">
+                            <button type="submit" class="btn btn-primary" style="width: 300px;">Edit Inventory</button>
+                        </form>
+                        <br>
+                        <form action="{{ url_for('inventory.edit_design', invid=details.inventory.id) }}" method="POST">
+                            <input type="hidden" name="invid" value="{{ details.inventory.id }}">
+                            <button type="submit" class="btn btn-primary" style="width: 300px;">Edit Inventory
+                                Design</button>
+                        </form>
+                        <br>
+                        {% if editable %}
+                        <form action="{{ url_for('product.edit_product', invid=details.inventory.id) }}" method="POST">
+                            <input type="hidden" name="invid" value="{{ details.inventory.id }}">
+                            <button type="submit" class="btn btn-primary" style="width: 300px;">Edit Product
+                                Information</button>
+                        </form>
+                        <br>
+                        {% endif %}
+                        <button type="button" onclick="confirmDeletion()" class="btn btn-danger"
+                            style="width: 300px;">Delete</button>
+                        {% endif %}
+                    </div>
+                    <br>
+                    <div class="card-footer bg-white border-top-0">
+                        <small class="text-muted">Quantity: {{ details.inventory.current_quantity }}</small>
+                        <br>
+                        <small class="text-muted">Price: ${{ details.inventory.price }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h3 style="padding-top: 20px;">All Sellers for this Product:</h3>
+    <br>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <ul class="flash-messages">
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    {% endif %}
+    {% endwith %}
+    <table class='table table-hover table-bordered container'>
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Seller ID</th>
+                <th scope="col">Inventory ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if all_products %}
+            {% for product in all_products %}
+            <tr>
+                <th scope="row">{{ product.inventory.sid }}</th>
+                <td>{{ product.inventory.id }}</td>
+                <td>{{ product.designs.name if product.designs else product.products.name }}</td>
+                <td>{{ product.designs.description if product.designs else product.products.description }}</td>
+                <td>{{ product.inventory.current_quantity }}</td>
+                <td>${{ product.inventory.price }}</td>
+                <td>
+                    {% if current_user.is_authenticated %}
+                    <form action="{{ url_for('cart.add_product_to_cart') }}" method="post">
+                        <input type="hidden" name="invid" value="{{ product.inventory.id }}">
+                        <input type="hidden" name="originalId" value="{{ details.inventory.id }}">
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="6">No sellers for this product.</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    let currentImageIndex = 0;
+    {% if details.images is iterable and details.images is not string %}
+    // If details.images is iterable and not a string, pass it directly.
+    const images = {{ details.images | map(attribute = 'content') | list | tojson }};
+    {% endif %}
+
+
+    function updateImage(direction) {
+        // Update currentImageIndex based on direction
+        if (direction === 'left') {
+            currentImageIndex = (currentImageIndex + images.length - 1) % images.length;
+        } else if (direction === 'right') {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+        }
+
+        // Update the image src attribute
+        document.getElementById('inventory-image').src = "{{ url_for('static', filename='images/') }}" + images[currentImageIndex];
+    }
+
+    function confirmDeletion() {
+        if (confirm("Are you sure you want to delete this inventory? This action cannot be undone.")) {
+            deleteInventory();
+        }
+    }
+
+    function deleteInventory() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', "{{ url_for('inventory.delete_inventory') }}", true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                alert('Inventory deleted successfully!');
+                window.location.href = "{{ url_for('inventory.inventory') }}";
+            } else {
+                alert('Failed to delete inventory. Please try again later.');
+            }
+        };
+        xhr.send('invid=' + encodeURIComponent({{ details.inventory.id }}));
+    }
+</script>
+{% endblock %}

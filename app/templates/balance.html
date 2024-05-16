@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<h1>Update Balance</h1>
+<br>
+
+<strong>Current Balance is: ${{ user.balance }}</strong>
+<br><br>
+
+<form action="{{ url_for('users.balance') }}" method="post">
+  {{ form.hidden_tag() }}
+
+  <div class="form-row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <strong>{{ form.top_up.label }}</strong><br>
+        {% for subfield in form.top_up %}
+        <label class="radio-inline">
+          {{ subfield }} {{ subfield.label.text }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="form-row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <strong>{{ form.withdraw.label }}</strong><br>
+        {% for subfield in form.withdraw %}
+        <label class="radio-inline">
+          {{ subfield }} {{ subfield.label.text }}
+        </label>
+        {% endfor %}
+      </div>
+      {% for error in form.withdraw.errors %}
+      <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <br>
+  <div class="form-row">
+    <div class="col-md-4">
+      <div class="form-group text-center">
+        {{ form.submit(class="btn btn-primary") }}
+      </div>
+    </div>
+  </div>
+</form>
+
+<script>
+  const topUps = document.querySelectorAll('input[name="top_up"]');
+  const withdraws = document.querySelectorAll('input[name="withdraw"]');
+
+  topUps.forEach(topUp => {
+    topUp.addEventListener('change', () => {
+      if (topUp.checked) {
+        withdraws.forEach(withdraw => {
+          withdraw.disabled = true;
+        });
+      } else {
+        withdraws.forEach(withdraw => {
+          withdraw.disabled = false;
+        });
+      }
+    });
+  });
+
+  withdraws.forEach(withdraw => {
+    withdraw.addEventListener('change', () => {
+      if (withdraw.checked) {
+        topUps.forEach(topUp => {
+          topUp.disabled = true;
+        });
+      } else {
+        topUps.forEach(topUp => {
+          topUp.disabled = false;
+        });
+      }
+    });
+  });
+</script>
+
+
+{% endblock %}

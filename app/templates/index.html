@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br><br>
+
+<button class="collapsible">Browse by Category</button>
+<div class="content">
+  <ul style="padding-left: 5px; list-style-type: none;">
+    {% for category in categories %}
+    <li><a href="{{ url_for('inventory.browse_category', categoryId=category.id) }}">{{ category.label }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+<h2 style="margin-top: 20px;">Top K Expensive Products</h2>
+<p>
+<form action="{{ url_for('index.index') }}" method="POST">
+  <label for="k">Top k products:</label>
+  <input type="number" id="k" name="k" required min="1">
+  <button type="submit">Get Top Products</button>
+</form>
+</p>
+
+{% if top_products %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Product Name</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for name, price in top_products.items() %}
+    <tr>
+      <td>{{ name[0] }}</td>
+      <td>${{ price }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Enter a number above to view the top k expensive products.</p>
+{% endif %}
+
+<br>
+
+<div class="row" style="display: flex; align-items: center;">
+  <h2 style="padding-right: 20px;">All Sellers' products for sale:</h2>
+  {% if check %}
+  <a href="{{ url_for('product.add_product') }}" class="btn btn-success" style="text-align:center; vertical-align: middle;">Add New Product</a>
+  {% endif %}
+</div>
+
+<br>
+
+<div class="container">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  <ul class="flash-messages">
+    {% for category, message in messages %}
+    <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+  <div class="row">
+    {% for item in inventory_details %}
+    <div class="col-md-3 col-sm-6 mb-4">
+      <div class="card h-100">
+
+        <a href="{{ url_for('inventory.seller_product_detail', invid=item.inventory.id, details=item) }}"
+          class="card-link">
+          {% if item.images.content %}
+          <img src="{{ url_for('static', filename='images/' ~ item.images.content) }}" alt="{{ item.images.content }}"
+            class="card-img-top">
+          {% else %}
+          <img src="..." alt="No image available" class="card-img-top"> <!-- Placeholder if no image -->
+          {% endif %}
+        </a>
+
+        <div class="card-body">
+          <h5 class="card-title">{{ item.designs.name if item.designs else item.products.name }}</h5>
+          <p class="card-text">{{ item.designs.description if item.designs else item.products.description }}</p>
+          {% if current_user.is_authenticated %}
+          <form action="{{ url_for('cart.add_product_to_cart') }}" method="post">
+            <input type="hidden" name="invid" value="{{ item.inventory.id }}">
+            <button type="submit" class="btn btn-primary">Add to Cart</button>
+          </form>
+          {% endif %}
+        </div>
+
+        <div class="card-footer">
+          <small class="text-muted">Seller ID: {{ item.inventory.sid }}</small>
+          <br>
+          <small class="text-muted">Price: ${{ item.inventory.price }}</small>
+        </div>
+
+      </div>
+    </div>
+    {% if loop.index % 4 == 0 %}
+  </div>
+  <div class="row">
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  for (var i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
+
+<style>
+  .collapsible {
+    background-color: #f9f9f9;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+
+  .active,
+  .collapsible:hover {
+    background-color: #ccc;
+  }
+
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    margin-top: 0;
+    list-style-type: none;
+  }
+</style>
+
+{% endblock %}

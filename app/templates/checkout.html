@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+
+<h2>Checkout</h2>
+<br>
+<table class='table table-hover table-bordered container'>
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Seller ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Description</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if cart_details %}
+        {% for item in cart_details %}
+        <tr>
+            <th scope="row">{{item.sid}}</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="5">No items in cart.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+    {% if total_items and total_price %}
+    <tfoot>
+        <tr class="table-info">
+            <th colspan="3">Total</th>
+            <td>{{ total_items }}</td>
+            <td colspan="1">${{ total_price | round(2) }}</td>
+        </tr>
+    </tfoot>
+    {% endif %}
+</table>
+<br>
+<h3 id="total_price">Total Price: ${{total_price}}</h3>
+<br>
+<h4 id="name">User Name: {{current_user.firstname}} {{current_user.lastname}}</h4>
+<h4 id="email">Email: {{current_user.email}}</h4>
+<h4 id="address">Address: {{current_user.address}}</h4>
+<br>
+<div class="form-group">
+    <label for="payment_method">Payment Method:</label>
+    <select class="form-control" id="payment_method" name="payment_method" required>
+        <option value="User Balance">User Balance</option>
+    </select>
+</div>
+<br>
+<form action="{{ url_for('cart.process_checkout') }}" method="post">
+    <button type="submit" class="btn btn-primary">Place Order</button>
+</form>
+
+{% endblock %}

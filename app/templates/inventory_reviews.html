@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<div class="container">
+    <h2>Reviews for Inventory ID: {{ invid }}</h2>
+    <br>
+    {% if reviews %}
+        <div>
+            <h3>Average Rating: {{ average_rating|round(1) }} Stars (Based on {{ review_count }} reviews)</h3>
+        </div>
+        <br>
+        {% if reviews|length > 3 %}
+            <h4>Most popular</h4>
+            <br>
+            {% for review in reviews[:3] %}
+                {% with review_single=review %}
+                    {% include '_review_list.html' %}
+                {% endwith %}
+            {% endfor %}
+            <br>
+            <h4>Most Recent</h4>
+            <br>
+            {% for review in reviews[3:] %}
+                {% with review_single=review %}
+                    {% include '_review_list.html' %}
+                {% endwith %}
+            {% endfor %}
+        {% else %}
+            {% for review in reviews %}
+                {% with review_single=review %}
+                    {% include '_review_list.html' %}
+                {% endwith %}
+            {% endfor %}
+        {% endif %}
+    {% else %}
+        <p>No reviews yet for this item.</p>
+    {% endif %}
+</div>
+
+<script>
+    function upvoteReview(reviewId) {
+        fetch("{{ url_for('review.upvote_review', review_id=0) }}".replace('0', reviewId), {
+            method: 'POST'
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Review upvoted!');
+                    location.reload();
+                } else {
+                    alert('You have already upvoted!');
+                }
+            });
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+
+<h2 style="padding-bottom: 20px;">Inventory List</h2>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mb-3" style="display: flex; justify-content: center">
+            <a href="{{ url_for('inventory.add_inventory') }}" class="btn btn-primary" style="width: 200px; margin-right: 20px;">Add New Inventory</a>
+            <a href="{{ url_for('inventory.seller_order_list') }}" class="btn btn-secondary" style="width: 200px;">View Orders</a>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        {% for item in inventories_details %}
+        <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card h-100">
+
+                <a href="{{ url_for('inventory.seller_product_detail', invid=item.inventory.id, details=item[0]) }}"
+                    class="card-link">
+                    {% if item.images.content %}
+                    <img src="{{ url_for('static', filename='images/' ~ item.images.content) }}"
+                        alt="{{ item.images.content }}" class="card-img-top">
+                    {% else %}
+                    <img src="..." alt="No image available" class="card-img-top"> <!-- Placeholder if no image -->
+                    {% endif %}
+                </a>
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.designs.name }}</h5>
+                    <p class="card-text">{{ item.designs.description }}</p>
+                </div>
+
+                <div class="card-footer">
+                    <small class="text-muted">Quantity: {{ item.inventory.current_quantity }}</small>
+                    <br>
+                    <small class="text-muted">Price: ${{ item.inventory.price }}</small>
+                </div>
+
+            </div>
+        </div>
+        {% if loop.index % 4 == 0 %}
+    </div>
+    <div class="row">
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
